@@ -11,14 +11,14 @@ endif()
 #####################################
 # Define Targets
 #####################################
-add_subdirectory(hellolib)
+add_subdirectory(wavlib)
 add_subdirectory(wavsynth)
 
 #####################################
 # Define Install Targets
 #####################################
 install(TARGETS
-  hellolib
+  wavlib
   wavsynth
   RUNTIME DESTINATION bin
   LIBRARY DESTINATION lib
@@ -28,10 +28,10 @@ install(TARGETS
 
 install(
   FILES 
-    ${CMAKE_SOURCE_DIR}/project/hellolib/include/hellolib.h 
-    ${CMAKE_BINARY_DIR}/exports/hellolib_export.h
+    ${CMAKE_SOURCE_DIR}/project/wavlib/include/wavlib.h 
+    ${CMAKE_BINARY_DIR}/exports/wavlib_export.h
   DESTINATION 
-    include/hellolib)
+    include/wavlib)
 
 install(FILES  
   ${CMAKE_SOURCE_DIR}/LICENSE

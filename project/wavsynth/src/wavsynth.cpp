@@ -1,9 +1,9 @@
-#include "hellolib.h"
+#include "wavlib.h"
 
 using namespace hello;
 
 int main() {
-  hellolib hello{};
+  wavlib hello{};
   int32_t error_code = hello.saySomething("Hello Modern C++ Development");
   if (error_code > 0) {
     return error_code;

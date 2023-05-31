@@ -1,9 +1,9 @@
 #include <string>
 
-#include "hellolib_export.h"
+#include "wavlib_export.h"
 
 namespace hello {
-class HELLOLIB_EXPORT hellolib {
+class WAVLIB_EXPORT wavlib {
  public:
   [[nodiscard]] int32_t saySomething(
       const std::string &something) const noexcept;

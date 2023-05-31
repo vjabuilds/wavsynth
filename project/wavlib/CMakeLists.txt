@@ -1,14 +1,14 @@
 # MIT License 
 # Copyright (c) 2018-Today Michele Adduci <adduci@tutanota.com>
 #
-# hellolib target instructions
+# wavlib target instructions
 
 #####################################
 # Define Target Information
 #####################################
-set(TARGET_NAME hellolib)
+set(TARGET_NAME wavlib)
 set(TARGET_INCLUDE_FOLDER ${CMAKE_CURRENT_SOURCE_DIR}/include)
-set(TARGET_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/hellolib.cpp)
+set(TARGET_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/wavlib.cpp)
 
 #####################################
 # Support IDE Visualization

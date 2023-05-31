@@ -8,7 +8,7 @@ using namespace hello;
 SCENARIO("Implementation shoud proceed successfully") {
   GIVEN("An implementation") {
     // WRITE here your implemented object
-    hellolib hello{};
+    wavlib hello{};
     WHEN("it is called correctly") {
       // WRITE here something
       auto return_code = hello.saySomething("I love BDD");
@@ -29,7 +29,7 @@ SCENARIO("Implementation shoud proceed successfully") {
 SCENARIO("Implementation with OpenSSL shoud proceed successfully") {
   GIVEN("An implementation") {
     // WRITE here your implemented object
-    hellolib hello{};
+    wavlib hello{};
     WHEN("it is called correctly") {
       // WRITE here something
       auto return_code = hello.saySomethingHashed("I love BDD");
