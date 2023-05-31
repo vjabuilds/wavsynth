@@ -12,14 +12,14 @@ endif()
 # Define Targets
 #####################################
 add_subdirectory(hellolib)
-add_subdirectory(helloapp)
+add_subdirectory(wavsynth)
 
 #####################################
 # Define Install Targets
 #####################################
 install(TARGETS
   hellolib
-  helloapp
+  wavsynth
   RUNTIME DESTINATION bin
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib
