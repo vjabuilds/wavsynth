@@ -12,6 +12,7 @@ namespace wavlib {
         std::string file_name;
 
         void write_preamble();
+        template<typename T> void write_data(const T& data);
         protected:
     };
 }
