@@ -8,16 +8,10 @@
 
 using namespace wavlib;
 
-WavOStream::WavOStream(const std::string& fn): file_name(fn)
+template<>
+void WavOStream::write_data(const decltype("nice")& data)
 {
-    this->wav_file = std::ofstream(fn, std::ofstream::binary | std::ofstream::out);
-    write_preamble();
-}
-
-template<typename T> 
-void WavOStream::write_data(const T& data)
-{
-    wav_file.write(reinterpret_cast<const char*>(&data), sizeof(data));
+    wav_file.write(data, sizeof(data) - 1);
 }
 
 template<>
@@ -26,10 +20,10 @@ void WavOStream::write_data(const std::string& data)
     wav_file.write(data.c_str(), data.length());
 }
 
-template<>
-void WavOStream::write_data(const decltype("nice")& data)
+WavOStream::WavOStream(const std::string& fn): file_name(fn)
 {
-    wav_file.write(data, sizeof(data) - 1);
+    this->wav_file = std::ofstream(fn, std::ofstream::binary | std::ofstream::out);
+    write_preamble();
 }
 
 void WavOStream::write_preamble() 
@@ -71,6 +65,11 @@ WavOStream::~WavOStream()
     this->wav_file.seekp(this->data_size_position, std::ofstream::beg);
     write_data(int32_t(this->data_size));
     wav_file.close();
+}
+
+void wavlib::WavOStream::insert_data(double data)
+{
+    insert_data(int16_t(data * 32000));
 }
 
 void WavOStream::insert_data(int16_t data)
