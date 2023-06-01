@@ -45,7 +45,7 @@ void WavOStream::write_preamble()
     const int bps = sample_rate * bits_per_sample * channels / 8;
 
     write_data("RIFF");
-    //write_data(int32_t(44 + bps * 10 - 8));
+    this->header_size_position = this->wav_file.tellp();
     write_data(int32_t(0));
     write_data("WAVE");
     write_data("fmt ");
@@ -60,29 +60,22 @@ void WavOStream::write_preamble()
     write_data(int16_t(bits_per_sample * channels / 8));
     write_data(int16_t(bits_per_sample));
     write_data("data");
-    //write_data(bps * 10);
-    write_data(0);
-
-    // const double freq = 220.0;
-    // const std::vector<double> freqs = {440.0, 493.88, 554.37, 587.33, 659.25, 739.99, 783.99, 880, 880, 880, 880, 880};
-    // int curr_ind = 0;
-    // double factor = M_PI * 2 * freqs[curr_ind] / sample_rate;
-    
-    // for(int i=0;i<sample_rate * 10;i++)
-    // {
-    //     if(i && i % sample_rate == 0)
-    //     {
-    //         curr_ind++;
-    //         factor = M_PI * 2 * freqs[curr_ind] / sample_rate;
-    //     }
-        
-    //     int16_t data = int16_t(sin(factor * i) * 32000);
-    //     write_data(data);
-    //     write_data(data);
-    // }
+    this->data_size_position = this->wav_file.tellp();
+    write_data(int32_t(0));
 }
 
 WavOStream::~WavOStream()
 {
+    this->wav_file.seekp(this->header_size_position, std::ofstream::beg);
+    write_data(int32_t(32 + this->data_size));
+    this->wav_file.seekp(this->data_size_position, std::ofstream::beg);
+    write_data(int32_t(this->data_size));
     wav_file.close();
+}
+
+void WavOStream::insert_data(int16_t data)
+{
+    write_data(data);
+    write_data(data);
+    data_size += 2 * sizeof(int16_t);
 }
