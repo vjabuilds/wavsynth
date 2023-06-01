@@ -4,7 +4,7 @@
 using namespace wavlib;
 
 int main() {
-  WavOStream stream("test.txt");
+  WavOStream stream("test.wav");
   std::cout << "Opened this file" << std::endl;
   return 0;
 }
