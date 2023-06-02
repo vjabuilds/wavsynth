@@ -5,12 +5,12 @@
 #include "wave_generator.h"
 
 namespace wavlib {
-    class SineWave : public WaveGenerator {
+    class SquareWave : public WaveGenerator {
         private:
         double frequency;
         std::vector<double> data;
         public:
-        SineWave(unsigned int, double);
+        SquareWave(unsigned int, double);
         double* begin();
         double* end();
         double generate(unsigned int sample);

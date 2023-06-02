@@ -1,3 +1,5 @@
+#pragma once
+
 namespace wavlib {
     class WaveGenerator {
         private:
