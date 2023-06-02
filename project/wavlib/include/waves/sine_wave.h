@@ -4,13 +4,13 @@
 
 #include "wave_generator.h"
 
-namespace wavlib {
-    class SquareWave : public WaveGenerator {
+namespace wavlib::waves {
+    class SineWave : public WaveGenerator {
         private:
         double frequency;
         std::vector<double> data;
         public:
-        SquareWave(unsigned int, double);
+        SineWave(unsigned int, double);
         double* begin();
         double* end();
         double generate(unsigned int sample);

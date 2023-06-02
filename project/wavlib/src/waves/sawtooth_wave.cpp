@@ -1,9 +1,9 @@
 #include <algorithm>
 #include <numeric>
 
-#include "sawtooth_wave.h"
+#include "waves/sawtooth_wave.h"
 
-using namespace wavlib;
+using namespace wavlib::waves;
 
 SawtoothWave::SawtoothWave(unsigned int sample_count, double f): WaveGenerator(sample_count), data(sample_count), frequency(f)
 {

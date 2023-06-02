@@ -2,9 +2,9 @@
 #include <numeric>
 #include <cmath>
 
-#include "square_wave.h"
+#include "waves/square_wave.h"
 
-using namespace wavlib;
+using namespace wavlib::waves;
 
 SquareWave::SquareWave(unsigned int sample_count, double f): WaveGenerator(sample_count), data(sample_count), frequency(f)
 {

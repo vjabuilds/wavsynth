@@ -8,7 +8,7 @@
 #####################################
 set(TARGET_NAME wavlib)
 set(TARGET_INCLUDE_FOLDER ${CMAKE_CURRENT_SOURCE_DIR}/include)
-file(GLOB SRC_FILES    
+file(GLOB_RECURSE SRC_FILES    
     "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
 )
 set(TARGET_SOURCES ${SRC_FILES})

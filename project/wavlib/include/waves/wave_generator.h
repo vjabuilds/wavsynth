@@ -1,6 +1,6 @@
 #pragma once
 
-namespace wavlib {
+namespace wavlib::waves {
     class WaveGenerator {
         private:
         unsigned int sample_count;

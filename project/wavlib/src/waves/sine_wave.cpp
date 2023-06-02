@@ -2,9 +2,9 @@
 #include <cmath>
 #include <algorithm>
 
-#include "sine_wave.h"
+#include "waves/sine_wave.h"
 
-using namespace wavlib;
+using namespace wavlib::waves;
 
 double SineWave::generate(unsigned int sample)
 {
