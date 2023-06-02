@@ -8,7 +8,11 @@
 #####################################
 set(TARGET_NAME wavlib)
 set(TARGET_INCLUDE_FOLDER ${CMAKE_CURRENT_SOURCE_DIR}/include)
-set(TARGET_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/wav_ostream.cpp)
+file(GLOB SRC_FILES    
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
+)
+set(TARGET_SOURCES ${SRC_FILES})
+
 
 #####################################
 # Support IDE Visualization
