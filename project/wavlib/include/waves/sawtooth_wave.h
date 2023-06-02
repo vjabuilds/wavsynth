@@ -6,13 +6,8 @@
 
 namespace wavlib::waves {
     class SawtoothWave : public WaveGenerator {
-        private:
-        double frequency;
-        std::vector<double> data;
         public:
-        SawtoothWave(unsigned int, double);
-        double* begin();
-        double* end();
+        using WaveGenerator::WaveGenerator;
         double generate(unsigned int sample);
     };
 }

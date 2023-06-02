@@ -8,13 +8,10 @@
 namespace wavlib::waves {
     class WhiteNoise : public WaveGenerator {
         private:
-        std::vector<double> data;
         std::default_random_engine engine;
         std::normal_distribution<double> dist;
         public:
-        WhiteNoise(unsigned int, double);
-        double* begin();
-        double* end();
+        using WaveGenerator::WaveGenerator;
         double generate(unsigned int sample);
     };
 }
