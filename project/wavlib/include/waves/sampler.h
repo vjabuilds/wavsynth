@@ -19,4 +19,14 @@ namespace wavlib::waves {
         double freq;
         std::shared_ptr<WaveGenerator> wg;
     };
+
+    class CircularIterator {
+        public:
+        CircularIterator(int step, int current): step(step), current(current){};
+
+        private:
+        int step;
+        int current;
+
+    };
 }
